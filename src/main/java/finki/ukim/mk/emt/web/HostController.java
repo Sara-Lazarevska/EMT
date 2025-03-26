@@ -25,7 +25,7 @@ public class HostController {
         return ResponseEntity.ok(hostService.getHostById(id));
     }
 
-    @PostMapping
+    @PostMapping()
     public ResponseEntity<HostDTO> addHost(@RequestBody HostDTO dto) {
         hostService.addHost(dto);
         return ResponseEntity.ok(dto);

@@ -18,7 +18,7 @@ public class Accomodation {
     Host host;
     Integer numRooms;
     Boolean rented;
-
+    String comment;
     public Accomodation() {
     }
 
