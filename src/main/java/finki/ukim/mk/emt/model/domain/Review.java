@@ -1,4 +1,4 @@
-package finki.ukim.mk.emt.model;
+package finki.ukim.mk.emt.model.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,13 +13,13 @@ public class Review {
     String comment;
     Integer rating;
     @ManyToOne
-    Accomodation accomodation;
+    Accommodation accommodation;
 
-    public Review(Long id, String comment, Integer rating, Accomodation accomodation) {
+    public Review(Long id, String comment, Integer rating, Accommodation accommodation) {
         this.id = id;
         this.comment = comment;
         this.rating = rating;
-        this.accomodation = accomodation;
+        this.accommodation = accommodation;
     }
 
     public Review() {
@@ -49,11 +49,11 @@ public class Review {
         this.rating = rating;
     }
 
-    public Accomodation getAccomodation() {
-        return accomodation;
+    public Accommodation getAccomodation() {
+        return accommodation;
     }
 
-    public void setAccomodation(Accomodation accomodation) {
-        this.accomodation = accomodation;
+    public void setAccomodation(Accommodation accommodation) {
+        this.accommodation = accommodation;
     }
 }

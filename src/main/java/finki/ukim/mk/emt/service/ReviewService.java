@@ -1,6 +1,6 @@
 package finki.ukim.mk.emt.service;
 
-import finki.ukim.mk.emt.model.Review;
+import finki.ukim.mk.emt.model.domain.Review;
 
 import java.util.List;
 import java.util.OptionalDouble;

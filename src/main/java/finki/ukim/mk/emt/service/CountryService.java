@@ -1,7 +1,7 @@
 package finki.ukim.mk.emt.service;
 
-import finki.ukim.mk.emt.model.Country;
-import finki.ukim.mk.emt.model.dto.CountryDTO;
+import finki.ukim.mk.emt.model.domain.Country;
+import finki.ukim.mk.emt.model.CreateDto.CountryDTO;
 
 import java.util.List;
 

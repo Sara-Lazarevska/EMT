@@ -1,11 +1,10 @@
 package finki.ukim.mk.emt.web;
 
-import finki.ukim.mk.emt.model.Review;
+import finki.ukim.mk.emt.model.domain.Review;
 import finki.ukim.mk.emt.service.ReviewService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.OptionalDouble;
 
 @RestController

@@ -1,8 +1,8 @@
 package finki.ukim.mk.emt.service.impl;
 
-import finki.ukim.mk.emt.model.Country;
-import finki.ukim.mk.emt.model.Host;
-import finki.ukim.mk.emt.model.dto.HostDTO;
+import finki.ukim.mk.emt.model.domain.Country;
+import finki.ukim.mk.emt.model.domain.Host;
+import finki.ukim.mk.emt.model.CreateDto.HostDTO;
 import finki.ukim.mk.emt.repository.CountryRepository;
 import finki.ukim.mk.emt.repository.HostRepository;
 import finki.ukim.mk.emt.service.HostService;

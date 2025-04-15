@@ -1,7 +1,7 @@
 package finki.ukim.mk.emt.web;
 
-import finki.ukim.mk.emt.model.Host;
-import finki.ukim.mk.emt.model.dto.HostDTO;
+import finki.ukim.mk.emt.model.domain.Host;
+import finki.ukim.mk.emt.model.CreateDto.HostDTO;
 import finki.ukim.mk.emt.service.HostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

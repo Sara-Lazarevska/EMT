@@ -1,16 +1,16 @@
 package finki.ukim.mk.emt.service;
 
-import finki.ukim.mk.emt.model.Accomodation;
-import finki.ukim.mk.emt.model.dto.AccomodationDTO;
+import finki.ukim.mk.emt.model.domain.Accommodation;
+import finki.ukim.mk.emt.model.CreateDto.AccomodationDTO;
 
 import java.util.List;
 
 
 public interface AccomodationService {
-    List<Accomodation> getAllAccommodations();
+    List<Accommodation> getAllAccommodations();
     AccomodationDTO getAccommodationById(Long id);
-    Accomodation addAccommodation(AccomodationDTO dto);
-    Accomodation updateAccommodation(Long id, AccomodationDTO dto);
+    Accommodation addAccommodation(AccomodationDTO dto);
+    Accommodation updateAccommodation(Long id, AccomodationDTO dto);
     void deleteAccommodation(Long id);
     void markAsRented(Long id);
 }

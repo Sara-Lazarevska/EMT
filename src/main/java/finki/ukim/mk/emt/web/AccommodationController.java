@@ -1,7 +1,7 @@
 package finki.ukim.mk.emt.web;
 
-import finki.ukim.mk.emt.model.Accomodation;
-import finki.ukim.mk.emt.model.dto.AccomodationDTO;
+import finki.ukim.mk.emt.model.domain.Accommodation;
+import finki.ukim.mk.emt.model.CreateDto.AccomodationDTO;
 import finki.ukim.mk.emt.service.AccomodationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +16,7 @@ public class AccommodationController {
     private AccomodationService accommodationService;
 
     @GetMapping
-    public List<Accomodation> getAllAccommodations() {
+    public List<Accommodation> getAllAccommodations() {
         return accommodationService.getAllAccommodations();
     }
 

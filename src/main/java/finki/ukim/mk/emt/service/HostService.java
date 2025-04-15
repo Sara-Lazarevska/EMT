@@ -1,7 +1,7 @@
 package finki.ukim.mk.emt.service;
 
-import finki.ukim.mk.emt.model.Host;
-import finki.ukim.mk.emt.model.dto.HostDTO;
+import finki.ukim.mk.emt.model.domain.Host;
+import finki.ukim.mk.emt.model.CreateDto.HostDTO;
 
 import java.util.List;
 

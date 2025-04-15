@@ -1,4 +1,4 @@
-package finki.ukim.mk.emt.model;
+package finki.ukim.mk.emt.model.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -7,7 +7,7 @@ import lombok.*;
 @Entity
 @Getter
 @Setter
-public class Accomodation {
+public class Accommodation {
     @Id
     @GeneratedValue
     Long id;
@@ -17,18 +17,20 @@ public class Accomodation {
     @ManyToOne
     Host host;
     Integer numRooms;
-    Boolean rented;
+    Integer rented;
     String comment;
-    public Accomodation() {
+
+    public Accommodation() {
     }
 
-    public Accomodation(Long id, String name, Category category, Host host, Integer numRooms, Boolean rented) {
+    public Accommodation(Long id, String name, Category category, Host host, Integer numRooms, Integer rented, String comment) {
         this.id = id;
         this.name = name;
         this.category = category;
         this.host = host;
         this.numRooms = numRooms;
         this.rented = rented;
+        this.comment = comment;
     }
 
     public Long getId() {
@@ -71,11 +73,19 @@ public class Accomodation {
         this.numRooms = numRooms;
     }
 
-    public Boolean getRented() {
+    public Integer getRented() {
         return rented;
     }
 
-    public void setRented(Boolean rented) {
+    public void setRented(Integer rented) {
         this.rented = rented;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 }

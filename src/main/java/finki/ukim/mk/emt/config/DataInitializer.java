@@ -1,53 +1,44 @@
 package finki.ukim.mk.emt.config;
 
-import finki.ukim.mk.emt.model.*;
-import finki.ukim.mk.emt.repository.AccomodationRepository;
-import finki.ukim.mk.emt.repository.CountryRepository;
-import finki.ukim.mk.emt.repository.HostRepository;
-import finki.ukim.mk.emt.repository.ReviewRepository;
-import jakarta.annotation.PostConstruct;
-import org.springframework.stereotype.Component;
+import finki.ukim.mk.emt.model.domain.*;
+import finki.ukim.mk.emt.repository.*;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
-@Component
+import java.util.List;
+
+@Configuration
 public class DataInitializer {
 
-    private final AccomodationRepository accommodationRepository;
-    private final HostRepository hostRepository;
-    private final CountryRepository countryRepository;
-    private final ReviewRepository reviewRepository;
+    @Bean
+    CommandLineRunner initDatabase(AccommodationRepository accommodationRepository,
+                                   HostRepository hostRepository,
+                                   CountryRepository countryRepository,
+                                   ReviewRepository reviewRepository) {
+        return args -> {
+            // === Countries ===
+            Country usa = new Country(1L, "United States", "North America");
+            Country france = new Country(2L, "France", "Europe");
+            countryRepository.saveAll(List.of(usa, france));
 
-    public DataInitializer(AccomodationRepository accommodationRepository, HostRepository hostRepository, CountryRepository countryRepository, ReviewRepository reviewRepository) {
-        this.accommodationRepository = accommodationRepository;
-        this.hostRepository = hostRepository;
-        this.countryRepository = countryRepository;
-        this.reviewRepository = reviewRepository;
-    }
+            // === Hosts ===
+            Host host1 = new Host(1L, "John", "Doe", usa);
+            Host host2 = new Host(2L, "Pierre", "Dupont", france);
+            hostRepository.saveAll(List.of(host1, host2));
 
-    @PostConstruct
-    public void init() {
-        Country usa = countryRepository.save(new Country(1l, "United States", "North America"));
-        Country uk = countryRepository.save(new Country(2l, "United Kingdom", "Europe"));
-        Country france = countryRepository.save(new Country(3l, "France", "Europe"));
-        Country germany = countryRepository.save(new Country(null, "Germany", "Europe"));
+            // === Accommodations ===
+            Accommodation acc1 = new Accommodation(1L, "Cozy Apartment", Category.APARTMENT, host1, 2, 0, "Perfect for couples");
+            Accommodation acc2 = new Accommodation(2L, "Luxury Villa", Category.HOUSE, host2, 5, 1, "Private pool and BBQ area");
+            Accommodation acc3 = new Accommodation(3L, "Downtown Studio", Category.ROOM, host1, 1, 0, "Compact and convenient");
+            accommodationRepository.saveAll(List.of(acc1, acc2, acc3));
 
-        Host host1 = hostRepository.save(new Host(1l, "John", "Doe", usa));
-        Host host2 = hostRepository.save(new Host(2l, "Emma", "Smith", uk));
-        Host host3 = hostRepository.save(new Host(3l, "Pierre", "Dupont", france));
-        Host host4 = hostRepository.save(new Host(null, "Hans", "Müller", germany));
-
-
-        Accomodation a1 = accommodationRepository.save(new Accomodation(1l, "Cozy Apartment", Category.APARTMENT, host1, 2, false));
-        Accomodation a2 = accommodationRepository.save(new Accomodation(2l, "Luxury Villa", Category.HOUSE, host2, 5, false));
-        Accomodation a3 = accommodationRepository.save(new Accomodation(3l, "Downtown Studio", Category.ROOM, host3, 1, false));
-        accommodationRepository.save(new Accomodation(null, "Modern Flat", Category.FLAT, host4, 3, false));
-        accommodationRepository.save(new Accomodation(null, "Seaside Hotel", Category.HOTEL, host1, 50, false));
-        accommodationRepository.save(new Accomodation(null, "Budget Motel", Category.MOTEL, host2, 20, false));
-
-        Review review = reviewRepository.save(new Review(1l, "Comment1", 2, a1));
-        Review review11 = reviewRepository.save(new Review(2l, "Comment1", 3, a1));
-        Review review111 = reviewRepository.save(new Review(3l, "Comment1", 4, a1));
-
-        Review review2 = reviewRepository.save(new Review(44l, "Comment2", 4, a2));
-        Review review3 = reviewRepository.save(new Review(55l, "Comment3", 5, a3));
+            // === Reviews ===
+            Review r1 = new Review(1L, "Super cozy and clean!", 5, acc1);
+            Review r2 = new Review(2L, "Had an amazing weekend.", 4, acc2);
+            Review r3 = new Review(3L, "Small but had everything I needed.", 3, acc3);
+            Review r4 = new Review(4L, "Could be cleaner.", 2, acc3);
+            reviewRepository.saveAll(List.of(r1, r2, r3, r4));
+        };
     }
 }

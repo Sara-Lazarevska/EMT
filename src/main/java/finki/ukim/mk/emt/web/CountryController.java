@@ -1,8 +1,8 @@
 package finki.ukim.mk.emt.web;
 
 
-import finki.ukim.mk.emt.model.Country;
-import finki.ukim.mk.emt.model.dto.CountryDTO;
+import finki.ukim.mk.emt.model.domain.Country;
+import finki.ukim.mk.emt.model.CreateDto.CountryDTO;
 import finki.ukim.mk.emt.service.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
