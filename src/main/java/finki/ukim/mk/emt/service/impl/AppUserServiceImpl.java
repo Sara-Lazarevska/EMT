@@ -29,6 +29,11 @@ public class AppUserServiceImpl implements AppUserService {
         userRepository.save(user);
     }
 
+    @Override
+    public Optional<AppUser> findByUsername(String username) {
+        return userRepository.findByUsername(username);
+    }
+
     public String login(LoginDTO dto) {
         AppUser user = userRepository.findByUsername(dto.getUsername())
                 .orElseThrow(() -> new RuntimeException("User not found"));

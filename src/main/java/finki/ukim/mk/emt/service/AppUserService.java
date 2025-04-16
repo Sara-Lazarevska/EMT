@@ -9,6 +9,6 @@ import java.util.Optional;
 
 public interface AppUserService {
     void register(RegisterDTO dto); // Method to register a user
-
+    public Optional<AppUser> findByUsername(String username);
     String login(LoginDTO dto); // Method to login a user
 }
