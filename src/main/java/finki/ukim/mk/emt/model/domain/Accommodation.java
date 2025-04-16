@@ -1,5 +1,6 @@
 package finki.ukim.mk.emt.model.domain;
 
+import finki.ukim.mk.emt.model.enumerations.Category;
 import jakarta.persistence.*;
 import lombok.*;
 

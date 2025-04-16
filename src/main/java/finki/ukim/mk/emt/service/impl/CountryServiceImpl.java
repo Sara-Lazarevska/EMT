@@ -1,7 +1,7 @@
 package finki.ukim.mk.emt.service.impl;
 
 import finki.ukim.mk.emt.model.domain.Country;
-import finki.ukim.mk.emt.model.CreateDto.CountryDTO;
+import finki.ukim.mk.emt.model.DisplayDto.CountryDTO;
 import finki.ukim.mk.emt.repository.CountryRepository;
 import finki.ukim.mk.emt.service.CountryService;
 import org.springframework.stereotype.Service;
